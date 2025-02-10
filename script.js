@@ -7,7 +7,7 @@ const proposalResponse = document.getElementById("proposal-response");
 // Function to show the response based on user's choice
 option1.addEventListener("click", function() {
     response.style.display = "block";
-    response.textContent = "Will you be my Valentine?";
+    response.textContent = "Will you be my Valentine, Nafeesa Baby?";
     // Disable the initial buttons
     option1.disabled = true;
     option2.disabled = true;
