@@ -1,41 +1,73 @@
+/* General Styles */
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #f2e8e1;
-    color: #d40000;
+    background-color: #fbe9e7;
+    margin: 0;
+    padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    margin: 0;
 }
 
 .container {
     text-align: center;
-}
-
-.title {
-    font-size: 3rem;
-    color: #d40000;
-}
-
-.question {
-    font-size: 1.5rem;
-}
-
-button {
-    font-size: 2rem;
-    padding: 20px;
+    max-width: 600px;
     margin: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+}
+
+.greeting {
+    font-size: 2rem;
+    color: #d40000;
+    margin-bottom: 20px;
+}
+
+.options {
+    margin-bottom: 20px;
+}
+
+.option-button {
+    font-size: 1.3rem;
+    padding: 15px 30px;
+    margin: 10px;
     background-color: #ff4d7f;
     color: white;
     border: none;
-    border-radius: 50%;
+    border-radius: 5px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
-button:hover {
+.option-button:hover {
     background-color: #ff1a3d;
 }
+
+.response {
+    font-size: 1.5rem;
+    margin-top: 20px;
+    color: #ff007f;
+    display: none;
+    font-weight: bold;
+}
+
+/* Smooth transition effect */
+button, .response {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.5s forwards;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 
 #message {
     margin-top: 20px;
