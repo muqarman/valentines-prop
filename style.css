@@ -1,29 +1,57 @@
 /* General Styles */
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #fbe9e7;
     margin: 0;
     padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
+    background: #ffe6f2; /* Soft pink background */
+    position: relative;
+    overflow: hidden;
+}
+
+/* Background with hearts */
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://cdn.pixabay.com/photo/2016/02/10/21/01/heart-1199479_960_720.png');
+    background-repeat: no-repeat;
+    background-size: 10%;
+    opacity: 0.2;
+    animation: heartAnimation 10s infinite linear;
+}
+
+/* Floating heart animation */
+@keyframes heartAnimation {
+    0% { transform: translateY(0) translateX(0); }
+    100% { transform: translateY(-500px) translateX(300px); }
 }
 
 .container {
     text-align: center;
     max-width: 600px;
     margin: 20px;
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    padding: 30px;
+    background: linear-gradient(145deg, #ff4d7f, #ff1a3d); /* Gradient for the container */
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    padding: 40px;
+    position: relative;
+    z-index: 1;
 }
 
 .greeting {
-    font-size: 2rem;
-    color: #d40000;
-    margin-bottom: 20px;
+    font-size: 2.2rem;
+    color: white;
+    margin-bottom: 30px;
+    font-family: 'Georgia', serif;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .options {
@@ -31,31 +59,57 @@ body {
 }
 
 .option-button {
-    font-size: 1.3rem;
+    font-size: 1.4rem;
     padding: 15px 30px;
     margin: 10px;
-    background-color: #ff4d7f;
+    background-color: #ff80ab;
     color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 15px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
 }
 
 .option-button:hover {
-    background-color: #ff1a3d;
+    background-color: #ff3366;
+    transform: scale(1.05);
 }
 
 .response {
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     margin-top: 20px;
-    color: #ff007f;
+    color: white;
+    font-weight: bold;
+    display: none;
+}
+
+.proposal-response {
+    font-size: 1.8rem;
+    margin-top: 20px;
+    color: white;
     display: none;
     font-weight: bold;
 }
 
+.proposal-button {
+    font-size: 1.3rem;
+    padding: 15px 30px;
+    margin: 10px;
+    background-color: #ff80ab;
+    color: white;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.proposal-button:hover {
+    background-color: #ff3366;
+}
+
 /* Smooth transition effect */
-button, .response {
+button, .response, .proposal-response {
     opacity: 0;
     transform: translateY(20px);
     animation: fadeInUp 0.5s forwards;
@@ -68,9 +122,3 @@ button, .response {
     }
 }
 
-
-#message {
-    margin-top: 20px;
-    font-size: 2rem;
-    color: #ff007f;
-}
